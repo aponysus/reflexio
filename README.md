@@ -11,10 +11,12 @@ Designed for services that need predictable retry behavior and clean integration
 
 ## Installation
 
-Not published yet. Install locally:
+From PyPI:
 
 ```bash
-uv pip install .
+uv pip install reflexio
+# or
+pip install reflexio
 ```
 
 ## Quick Start
