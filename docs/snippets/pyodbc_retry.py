@@ -11,10 +11,8 @@ Setup:
   export PYODBC_CONN_STR="DRIVER={ODBC Driver 18 for SQL Server};SERVER=localhost;DATABASE=mydb;UID=user;PWD=pass"
 
 Note: adjust the connection string and query for your environment. The classifier
-is intentionally minimal—adapt codes to your driver/server behavior.
+is intentionally minimal. Adapt codes to your driver/server behavior.
 """
-
-from __future__ import annotations
 
 import os
 from collections.abc import Iterable, Iterator, Sequence

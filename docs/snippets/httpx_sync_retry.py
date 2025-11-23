@@ -5,8 +5,6 @@ Run with:
     uv run python docs/snippets/httpx_sync_retry.py
 """
 
-from __future__ import annotations
-
 from collections.abc import Iterable
 from typing import Any
 

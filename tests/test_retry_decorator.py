@@ -1,6 +1,5 @@
 # tests/test_retry_decorator.py
 
-from __future__ import annotations
 
 import asyncio
 

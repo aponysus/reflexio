@@ -5,8 +5,6 @@ Run locally with:
     uv run uvicorn examples.fastapi_downstream:app --reload
 """
 
-from __future__ import annotations
-
 import httpx
 from fastapi import FastAPI, HTTPException
 

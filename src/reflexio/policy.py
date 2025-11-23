@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 import asyncio
 import collections
 import functools
@@ -238,7 +236,7 @@ class RetryPolicy(_BaseRetryPolicy):
         config: RetryConfig,
         *,
         classifier: ClassifierFn,
-    ) -> RetryPolicy:
+    ) -> "RetryPolicy":
         """
         Construct a RetryPolicy from a RetryConfig bundle.
         """
@@ -374,7 +372,7 @@ class AsyncRetryPolicy(_BaseRetryPolicy):
         config: RetryConfig,
         *,
         classifier: ClassifierFn,
-    ) -> AsyncRetryPolicy:
+    ) -> "AsyncRetryPolicy":
         """
         Construct an AsyncRetryPolicy from a RetryConfig bundle.
         """

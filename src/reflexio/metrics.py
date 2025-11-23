@@ -6,8 +6,6 @@ objects from your observability stack and wrap them into MetricHook-compatible
 functions.
 """
 
-from __future__ import annotations
-
 from collections.abc import Mapping
 from typing import Any, Protocol
 

@@ -1,6 +1,5 @@
 # tests/test_classify.py
 
-from __future__ import annotations
 
 from reflexio.classify import default_classifier
 from reflexio.errors import ErrorClass

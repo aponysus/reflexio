@@ -5,8 +5,6 @@ Run with:
     uv run python docs/snippets/async_worker_retry.py
 """
 
-from __future__ import annotations
-
 import asyncio
 from typing import Any
 

@@ -6,8 +6,6 @@ Run with:
     uv run python docs/snippets/httpx_async_retry.py
 """
 
-from __future__ import annotations
-
 import asyncio
 from typing import Any
 

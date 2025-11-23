@@ -5,8 +5,6 @@ Maps common SQLSTATE/driver codes to ErrorClass without importing pyodbc as a de
 Adapt the mappings to your environment (SQL Server/Postgres) and driver behaviors.
 """
 
-from __future__ import annotations
-
 import re
 from collections.abc import Iterable
 
