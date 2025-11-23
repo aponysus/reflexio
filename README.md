@@ -1,7 +1,7 @@
 # reflexio
 
 ![CI](https://github.com/aponysus/reflexio/actions/workflows/ci.yml/badge.svg)
-![Coverage](https://codecov.io/gh/aponysus/reflexio/branch/master/graph/badge.svg)
+[![codecov](https://codecov.io/gh/aponysus/reflexio/branch/main/graph/badge.svg?token=OaQIP7hzAE)](https://codecov.io/gh/aponysus/reflexio)
 
 Composable, low-overhead retry policies with **pluggable classification**, **per-class backoff strategies**, and **structured observability hooks**.  
 Designed for services that need predictable retry behavior and clean integration with metrics/logging.
