@@ -32,7 +32,7 @@ addopts = [
     "--cov-report=term",
     "--cov-report=xml",
 ]
-testpaths = ["src/tests"]
+testpaths = ["tests"]
 
 [tool.coverage.run]
 branch = true
