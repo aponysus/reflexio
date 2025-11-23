@@ -113,3 +113,21 @@ async def fetch_user_async():
 ```
 
 Hooks and `operation` can be set on the decorator. The `operation` defaults to the function name when omitted.
+
+## PyODBC classification example
+
+`reflexio` stays dependency-free, so database-specific classifiers live in docs. See `docs/snippets/pyodbc_classifier.py` for a SQLSTATE-based mapper.
+
+```python
+from reflexio import retry
+from reflexio.strategies import decorrelated_jitter
+from docs.snippets.pyodbc_classifier import pyodbc_classifier  # adjust import path as needed
+
+@retry(
+    classifier=pyodbc_classifier,
+    strategy=decorrelated_jitter(max_s=3.0),
+    strategies={},  # optional per-class overrides
+)
+def run_query():
+    ...
+```
