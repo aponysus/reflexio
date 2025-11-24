@@ -5,7 +5,7 @@ import time
 from collections.abc import Awaitable, Callable, Mapping
 from dataclasses import dataclass
 from datetime import UTC, datetime, timedelta
-from typing import Any, ParamSpec, TypeVar, cast, overload
+from typing import Any, Literal, ParamSpec, TypeVar, cast, overload
 
 from .classify import default_classifier
 from .config import RetryConfig
@@ -163,19 +163,20 @@ class _RetryContext:
     on_log: LogHook | None
     operation: str | None
 
-    def __enter__(self) -> Callable[[Callable[P, T], P.args, P.kwargs], T]:
+    def __enter__(self) -> Callable[..., T]:
         return self.call
 
-    def __exit__(self, exc_type: Any, exc: Any, tb: Any) -> bool:
+    def __exit__(self, exc_type: Any, exc: Any, tb: Any) -> Literal[False]:
         return False
 
-    def call(self, func: Callable[P, T], *args: P.args, **kwargs: P.kwargs) -> T:
-        return self.policy.call(
+    def call(self, func: Callable[..., T], *args: Any, **kwargs: Any) -> T:
+        result = self.policy.call(
             lambda: func(*args, **kwargs),
             on_metric=self.on_metric,
             on_log=self.on_log,
             operation=self.operation,
         )
+        return cast(T, result)
 
 
 @dataclass
@@ -185,19 +186,20 @@ class _AsyncRetryContext:
     on_log: LogHook | None
     operation: str | None
 
-    async def __aenter__(self) -> Callable[[Callable[P, Awaitable[T]], P.args, P.kwargs], Awaitable[T]]:
+    async def __aenter__(self) -> Callable[..., Awaitable[T]]:
         return self.call
 
-    async def __aexit__(self, exc_type: Any, exc: Any, tb: Any) -> bool:
+    async def __aexit__(self, exc_type: Any, exc: Any, tb: Any) -> Literal[False]:
         return False
 
-    async def call(self, func: Callable[P, Awaitable[T]], *args: P.args, **kwargs: P.kwargs) -> T:
-        return await self.policy.call(
+    async def call(self, func: Callable[..., Awaitable[T]], *args: Any, **kwargs: Any) -> T:
+        result = await self.policy.call(
             lambda: func(*args, **kwargs),
             on_metric=self.on_metric,
             on_log=self.on_log,
             operation=self.operation,
         )
+        return result
 
 
 class RetryPolicy(_BaseRetryPolicy):

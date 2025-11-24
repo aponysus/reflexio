@@ -19,6 +19,7 @@ def test_retry_policy_context() -> None:
         events.append(event)
 
     with policy.context(on_metric=metric, operation="op") as retry:
+
         def succeed() -> str:
             return "ok"
 
@@ -40,6 +41,7 @@ def test_async_retry_policy_context() -> None:
 
     async def runner() -> None:
         async with policy.context(on_metric=metric, operation="op") as retry:
+
             async def succeed() -> str:
                 return "ok"
 

@@ -7,7 +7,7 @@ Dependency-free: these functions inspect attributes/args without importing clien
 from __future__ import annotations
 
 import re
-from typing import Iterable
+from collections.abc import Iterable
 
 from .classify import default_classifier
 from .errors import ErrorClass
