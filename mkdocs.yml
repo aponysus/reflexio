@@ -29,6 +29,7 @@ nav:
       - Policies & decorators: concepts/policies-decorators.md
       - Observability: observability.md
       - Design notes: design_notes.md
+  - Usage: usage.md
   - Examples: examples/index.md
   - API reference: api.md
   - Changelog: changelog.md

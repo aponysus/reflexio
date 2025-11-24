@@ -55,5 +55,6 @@ result = policy.call(lambda: do_work(), operation="sync_task")
 - [Getting started](getting-started.md) – install and first examples.
 - [Concepts](concepts/error-classes.md) – error classes, strategies, policies, decorators.
 - [Observability](observability.md) – metrics/log hooks and patterns.
-- [Examples](examples/index.md) – runnable snippets for HTTP, DB, workers, FastAPI, benchmarks.
+- [Usage](usage.md) - basic usage patterns.
+- [Examples & Integrations](examples/index.md) – runnable snippets for HTTP, DB, workers, FastAPI, benchmarks.
 - [API reference](api.md) – entry points at a glance.
