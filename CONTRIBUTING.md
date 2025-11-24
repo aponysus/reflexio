@@ -26,7 +26,7 @@ We follow Semantic Versioning (`MAJOR.MINOR.PATCH`):
 3. Run the quality checks:
 
    ```bash
-   # Formatting (optional strict check)
+   # Formatting
    uv run ruff format --check src tests docs
 
    # Lint
