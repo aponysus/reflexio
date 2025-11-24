@@ -1,9 +1,6 @@
-"""
-Optional helper classifiers for common domains (HTTP status, SQLSTATE).
+"""Optional helper classifiers for common domains (HTTP status, SQLSTATE).
 Dependency-free: these functions inspect attributes/args without importing client libs.
 """
-
-from __future__ import annotations
 
 import re
 from collections.abc import Iterable
