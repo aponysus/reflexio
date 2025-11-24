@@ -13,3 +13,4 @@ wheels/
 
 coverage.xml
 .coverage
+.hypothesis

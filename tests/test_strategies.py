@@ -56,9 +56,10 @@ def test_decorrelated_jitter_property(
         strategies.random.uniform = lambda a, b: (a + b) / 2.0
         strat = decorrelated_jitter(base_s=base_s, max_s=max_s)
         sleep_s = strat(attempt, ErrorClass.TRANSIENT, prev)
-        effective_prev = prev if prev is not None else base_s
-        low = min(base_s, effective_prev * 3.0)
-        high = min(max_s, max(base_s, effective_prev * 3.0))
+        effective_prev = prev if (prev is not None and prev > 0.0) else base_s
+        a, b = base_s, effective_prev * 3.0
+        low = min(a, b)
+        high = min(max_s, max(a, b))
         assert low <= sleep_s <= high
     finally:
         strategies.random.uniform = original_uniform
